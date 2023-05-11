@@ -18,17 +18,18 @@ class StringHandler implements URLHandler {
         String toAdd = query.split("=")[1];
         this.lines.add(toAdd);
         return String.format("%s added, there are now %s lines\n", toAdd, this.lines.size());
-      }
-      else {
+      } else {
         return "/add requires a query parameter s\n";
       }
-    }
-    else {
+    } else {
       return String.join("\n", lines) + "\n";
     }
+    
   }
 }
 
+// USE NumberServer.java as template for below
+// === ==== ==== === ==== 
 class StringServer {
   public static void main(String[] args) throws IOException {
     if(args.length == 0){
@@ -36,7 +37,7 @@ class StringServer {
       return;
     }
     if(args.length == 1){
-      System.out.println("Missing file path! Give a path to a text file as the second argument.");
+      System.out.println("Missing file path!);
       return;
     }
 
