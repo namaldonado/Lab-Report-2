@@ -13,11 +13,11 @@ class StringHandler implements URLHandler {
   }
   public String handleRequest(URI url) throws IOException {
     String query = url.getQuery();
-    if(url.getPath().equals("/add-message")) {
+    if(url.getPath().equals("/add")) {
       if(query.startsWith("s=")) {
         String toAdd = query.split("=")[1];
         this.lines.add(toAdd);
-        return String.format("%s added, there are now %s lines\n", toAdd, this.lines.size());
+        return String.join("\n", lines) + "\n";
       } else {
         return "/add requires a query parameter s\n";
       }
