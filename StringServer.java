@@ -13,7 +13,7 @@ class StringHandler implements URLHandler {
   }
   public String handleRequest(URI url) throws IOException {
     String query = url.getQuery();
-    if(url.getPath().equals("/add")) {
+    if(url.getPath().equals("/add-message")) {
       if(query.startsWith("s=")) {
         String toAdd = query.split("=")[1];
         this.lines.add(toAdd);
