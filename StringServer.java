@@ -11,7 +11,7 @@ class StringHandler implements URLHandler {
     this.path = path;
     this.lines = Files.readAllLines(Paths.get(path));
   }
-  public String handleRequest(URI url) {
+  public String handleRequest(URI url) throws IOException {
     String query = url.getQuery();
     if(url.getPath().equals("/add")) {
       if(query.startsWith("s=")) {
@@ -33,6 +33,10 @@ class StringServer {
   public static void main(String[] args) throws IOException {
     if(args.length == 0){
       System.out.println("Missing port number! Try any number between 1024 to 49151");
+      return;
+    }
+    if(args.length == 1){
+      System.out.println("Missing file path! Give a path to a text file as the second argument.");
       return;
     }
 
